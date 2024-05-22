@@ -1,6 +1,7 @@
 import os
 import cv2
 from skimage.feature import hog
+from DataProcessingModel import DataCleaning as DC
 DataLink="/Data"
 
 def proImage(image_path):
@@ -11,8 +12,10 @@ def proImage(image_path):
 
    image=cv2.imread(image_path)       #đọc ảnh từ đường dẫn
    newsize=(300,300)
-   image =cv2.resize(image,newsize)    #chỉnh lại size của ảnh
+   image =cv2.resize(image,newsize) #chỉnh lại size của ảnh 
    gray_image=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)     #đổi ảnh thành ảnh ko màu
+   #gray_image=DC.denoise(gray_image)
+   #gray_image=DC.enhance_contrast(gray_image)
    features = hog(gray_image, orientations=9, pixels_per_cell=(8, 8), cells_per_block=(2, 2), visualize=False) # trích xuất đặc trưng theo HOG
    return features
 def proData(folder_path,label,count):
