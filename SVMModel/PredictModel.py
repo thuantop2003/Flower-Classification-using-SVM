@@ -1,6 +1,8 @@
 import numpy as np
 def predict(w,b,x):
     # w,b là vector siêu phẳng của module
+
+    #tính theo công thức predict
     a=w.dot(x)+b
     if(a[0]>=0): return 1 
     else: return -1
