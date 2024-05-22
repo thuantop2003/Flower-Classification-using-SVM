@@ -3,7 +3,7 @@ import cv2
 from skimage.feature import hog
 DataLink="/Data"
 
-def proImange(image_path):
+def proImage(image_path):
    #Đưa tất cả ảnh về cùng 1 size
    #Đọc ảnh dưới dạng ma trận pixel
    #Chuyển đổi ảnh thành vectow n chiều (sử dụng 1 trong các phương pháp trích xuất đặc trưng HOG, SIFT, LBP )
@@ -27,7 +27,7 @@ def proData(folder_path,label,count):
       if(c==count): #khi đủ count phần tử thì dừng lại
          break
       image_path = os.path.join(folder_path, image_file) #tạo đường dẫn ảnh
-      image = proImange(image_path) #trích xuất đặc trưng ảnh
+      image = proImage(image_path) #trích xuất đặc trưng ảnh
       X.append(image) #X thêm ma trận ảnh
       Y.append(label) #Y thêm nhãn ảnh
       c=c+1
