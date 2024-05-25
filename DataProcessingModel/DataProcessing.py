@@ -20,6 +20,10 @@ def proImage(image_path):
    image =DC.delete_sky_blue(image)
    image =DC.delete_brown(image)
    gray_image=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)     #đổi ảnh thành ảnh ko màu
+   #gray_image=DC.denoise(gray_image)
+   #gray_image=DC.remove_small_objects(gray_image)
+   #gray_image=DC.enhance_contrast(gray_image)
+   #gray_image=DC.detect_edges(gray_image)
    features = hog(gray_image, orientations=9, pixels_per_cell=(8, 8), cells_per_block=(2, 2), visualize=False) # trích xuất đặc trưng theo HOG
    return features
 def proData(folder_path,label,count):
