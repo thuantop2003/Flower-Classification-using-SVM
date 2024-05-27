@@ -14,7 +14,7 @@ X_daisy,Y_daisy=DP.proData(folder_daisy_path,1,100)
 X_rose,Y_rose=DP.proData(folder_rose_path,3,100)
 X_dandelion,Y_dandelion=DP.proData(folder_dandelion_path,2,100)
 X_sunflower,Y_sunflower=DP.proData(folder_sunflower_path,4,100)
-X_tulio,Y_tulip=DP.proData(folder_rose_path,5,100)
+X_tulip,Y_tulip=DP.proData(folder_rose_path,5,100)
 
 
 #chia tập train-test theo tỉ lệ 3-7
@@ -22,7 +22,7 @@ X_daisy_train,Y_daisy_train,X_daisy_test,Y_daisy_test=TM.devideData(X_daisy,Y_da
 X_rose_train,Y_rose_train,X_rose_test,Y_rose_test=TM.devideData(X_rose,Y_rose,0.3)
 X_dandelion_train,Y_dandelion_train,X_dandelion_test,Y_dandelion_test=TM.devideData(X_dandelion,Y_dandelion,0.3)
 X_sunflower_train,Y_sunflower_train,X_sunflower_test,Y_sunflower_test=TM.devideData(X_sunflower,Y_sunflower,0.3)
-X_tulip_train,Y_tulip_train,X_tulip_test,Y_tulip_test=TM.devideData(X_sunflower,Y_sunflower,0.3)
+X_tulip_train,Y_tulip_train,X_tulip_test,Y_tulip_test=TM.devideData(X_tulip,Y_tulip,0.3)
 
 X_Test=X_daisy_test+X_dandelion_test+X_rose_test+X_sunflower_test+X_tulip_test
 Y_Test=Y_daisy_test+Y_dandelion_test+Y_rose_test+Y_sunflower_test+Y_tulip_test

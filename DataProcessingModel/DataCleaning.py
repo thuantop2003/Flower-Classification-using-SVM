@@ -112,9 +112,6 @@ def detect_edges(equalized_image):
     if equalized_image is None:
         return None
     edges = cv2.Canny(equalized_image, 100, 200)
-<<<<<<< HEAD
     return edges
-=======
     return edges
 
->>>>>>> d31f299fccd4ac1af2ade529599cfbc7395faa13
