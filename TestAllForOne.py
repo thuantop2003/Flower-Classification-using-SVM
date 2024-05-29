@@ -38,11 +38,11 @@ def devideData(path,amount,label):
     Y_train=np.concatenate((Y1_train, Y2_train), axis=0)
     Y_test=np.concatenate((Y1_test, Y2_test), axis=0)
     return X_train,Y_train,X_test, Y_test
-X_daisy_train,Y_daisy_train,X_daisy_test,Y_daisy_test=devideData(folder_daisy_path,300,1)
-X_dandelion_train,Y_dandelion_train,X_dandelion_test,Y_dandelion_test=devideData(folder_dandelion_path,300,2)
-X_rose_train,Y_rose_train,X_rose_test,Y_rose_test=devideData(folder_rose_path,300,3)
-X_sunflower_train,Y_sunflower_train,X_sunflower_test,Y_sunflower_test=devideData(folder_sunflower_path,300,4)
-X_tulip_train,Y_tulip_train,X_tulip_test,Y_tulip_test=devideData(folder_tulip_path,300,5)
+X_daisy_train,Y_daisy_train,X_daisy_test,Y_daisy_test=devideData(folder_daisy_path,100,1)
+X_dandelion_train,Y_dandelion_train,X_dandelion_test,Y_dandelion_test=devideData(folder_dandelion_path,100,2)
+X_rose_train,Y_rose_train,X_rose_test,Y_rose_test=devideData(folder_rose_path,100,3)
+X_sunflower_train,Y_sunflower_train,X_sunflower_test,Y_sunflower_test=devideData(folder_sunflower_path,100,4)
+X_tulip_train,Y_tulip_train,X_tulip_test,Y_tulip_test=devideData(folder_tulip_path,100,5)
 
 #train model tìm w1,b1 để phân loại hoa daisy hay không
 w1,b1=TM.trainingSVM(X_daisy_train,Y_daisy_train,0.1)

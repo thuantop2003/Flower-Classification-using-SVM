@@ -1,7 +1,8 @@
 import numpy as np
 from sklearn.svm import SVC
 import json
-def trainingSVM(X,Y,mC):
+from cvxopt import matrix,solvers
+def trainingSVMbyScikitlearn(X,Y,mC):
     #sử dụng hệ số C và tập dữ liệu để training model và tìm w và b
 
     #thiết lập model
@@ -56,3 +57,34 @@ def callModel():
     b = data['b']
     return w,b
                  
+def trainingSVM(XX,YY,mC):
+    N=len(XX)
+    X=np.array(XX)
+    X=X.T
+    Y=np.array(YY)
+    Y=Y.T
+    V=X*Y
+    K=matrix(V.T.dot(V))
+    p=matrix(-np.ones((N,1)))
+    G=matrix(np.vstack((-np.eye(N),np.eye(N))))
+    h=matrix(np.vstack((np.zeros(((N,1))),mC*np.ones((N,1)))))
+    A=matrix(Y.reshape((-1,N)),tc='d')
+    b=matrix(np.zeros((1,1)))
+    solvers.options['show_progress']=False
+    sol=solvers.qp(K,p,G,h,A,b)
+    l=np.array(sol['x'])
+
+    S=np.where(l>1e-5)[0]
+    S2=np.where(l<0.999*mC)
+
+    M=[val for val in S  if np.any(val == S2)]
+
+    VS=V[:,S]
+    XT=X
+    print(XT.shape)
+    LS=l[S]
+    yM=Y[M]
+    XM=XT[:,M]
+    w_dual=VS.dot(LS).reshape(-1,1)
+    b_dual=np.mean(yM.T-w_dual.T.dot(XM))
+    return w_dual.T,np.array(b_dual)

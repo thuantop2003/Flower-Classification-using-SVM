@@ -14,7 +14,7 @@ X_daisy,Y_daisy=DP.proData(folder_daisy_path,1,100)
 X_rose,Y_rose=DP.proData(folder_rose_path,3,100)
 X_dandelion,Y_dandelion=DP.proData(folder_dandelion_path,2,100)
 X_sunflower,Y_sunflower=DP.proData(folder_sunflower_path,4,100)
-X_tulip,Y_tulip=DP.proData(folder_rose_path,5,100)
+X_tulip,Y_tulip=DP.proData(folder_tulip_path,5,100)
 
 
 #chia tập train-test theo tỉ lệ 3-7

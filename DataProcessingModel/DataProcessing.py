@@ -2,6 +2,7 @@ import os
 import cv2
 from skimage.feature import hog
 from DataProcessingModel import DataCleaning as DC
+from skimage import color
 DataLink="/Data"
 
 def proImage(image_path):
@@ -19,13 +20,18 @@ def proImage(image_path):
    image =DC.delete_blue(image)
    image =DC.delete_sky_blue(image)
    image =DC.delete_brown(image)
+   image_rgb=color.rgb2hsv(image)
    gray_image=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)     #đổi ảnh thành ảnh ko màu
+   hog_features=[]
+   for channel in range(image_rgb.shape[2]):
+       features = hog(image_rgb[:,:,channel], orientations=9, pixels_per_cell=(8, 8), cells_per_block=(2, 2), visualize=False)
+       hog_features=hog_features+features.tolist()
    #gray_image=DC.denoise(gray_image)
    #gray_image=DC.remove_small_objects(gray_image)
    #gray_image=DC.enhance_contrast(gray_image)
    #gray_image=DC.detect_edges(gray_image)
-   features = hog(gray_image, orientations=9, pixels_per_cell=(8, 8), cells_per_block=(2, 2), visualize=False) # trích xuất đặc trưng theo HOG
-   return features
+   #features = hog(gray_image, orientations=9, pixels_per_cell=(8, 8), cells_per_block=(2, 2), visualize=False) # trích xuất đặc trưng theo HOG
+   return hog_features
 def proData(folder_path,label,count):
     #sử dụng proImange để xử lý toàn bộ dataset thành vector n chiều
     #trả về 2 list có count phần tử : mảng các vector n chiều và mảng nhãn của chúng
