@@ -19,7 +19,7 @@ def proImage(image_path):
    image =DC.delete_deepgreen(image)
    image =DC.delete_blue(image)
    image =DC.delete_sky_blue(image)
-   image =DC.delete_brown(image)
+   # image =DC.delete_brown(image)
    image_rgb=color.rgb2hsv(image)
    gray_image=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)     #đổi ảnh thành ảnh ko màu
    hog_features=[]
