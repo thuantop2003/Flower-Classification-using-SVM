@@ -21,7 +21,7 @@ def proImage(image_path):
    image =DC.delete_sky_blue(image)
    image =DC.delete_brown(image)
    image_rgb=color.rgb2hsv(image)
-   gray_image=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)     #đổi ảnh thành ảnh ko màu
+   #gray_image=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)     #đổi ảnh thành ảnh ko màu
    hog_features=[]
    for channel in range(image_rgb.shape[2]):
        features = hog(image_rgb[:,:,channel], orientations=9, pixels_per_cell=(8, 8), cells_per_block=(2, 2), visualize=False)

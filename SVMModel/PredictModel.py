@@ -15,19 +15,21 @@ def Evaluate(w,b,X,Y):
             T=T+1
     return float(T)/len(X)
 def EvaluateAllForOne(w,b,X,Y):
-    #hàm này đánh giá độ chính xác của w và b trên tập test X,Y
+    #hàm này đánh giá độ chính xác của w và b trên tập test X,Y theo các AllforOne cho phân loại đa nhãn
     T=0
     for i in range(len(X)):
         if(predictAllForOne(w,b,X[i])==Y[i]):
             T=T+1
     return float(T)/len(X)
 def predictAllForOne(w,b,x):
+    #dự phân loại bằng ALlforOne
     for i in range(0,len(w)):
         a=w[i].dot(x)+b[i]
         if(a[0]>=0): return i+1 
     return -1
 
 def predictOneForOne(w,b,x):
+    #dự đoán phân loại bằng OneforOne
     n=np.zeros(6)
     max=0;
     index=0;
@@ -44,7 +46,7 @@ def predictOneForOne(w,b,x):
     return index
 
 def EvaluateOneForOne(w,b,X,Y):
-    #hàm này đánh giá độ chính xác của w và b trên tập test X,Y
+    #hàm này đánh giá độ chính xác của w và b trên tập test X,Y theo cách OneforOne cho phân loại đa nhãn
     T=0
     for i in range(len(X)):
         if(predictOneForOne(w,b,X[i])==Y[i]):

@@ -16,7 +16,7 @@ def trainingSVMbyScikitlearn(X,Y,mC):
 def devideData(X,Y,p):
     #hàm này chia 2 tập X,Y thành 2 phần X_test,Y_test: p*n  phần tử đầu, X_train, Y_train là số phần tử còn lại
 
-    
+
     n=len(X)
     count=p*n
     X_train=[]

@@ -31,7 +31,7 @@ Y_Test=Y_daisy_test+Y_dandelion_test+Y_rose_test+Y_sunflower_test+Y_tulip_test
 X_Train=X_daisy_train+X_dandelion_train+X_rose_train+X_sunflower_train+X_tulip_train
 Y_Train=Y_daisy_train+Y_dandelion_train+Y_rose_train+Y_sunflower_train+Y_tulip_train
 
-
+#gọi model trong SVC
 model=SVC(kernel='linear',C=0.1)
 
     #train model

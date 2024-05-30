@@ -26,7 +26,7 @@ X_tulip_train,Y_tulip_train,X_tulip_test,Y_tulip_test=TM.devideData(X_tulip,Y_tu
 
 X_Test=X_daisy_test+X_dandelion_test+X_rose_test+X_sunflower_test+X_tulip_test
 Y_Test=Y_daisy_test+Y_dandelion_test+Y_rose_test+Y_sunflower_test+Y_tulip_test
-
+#Tạo tập nhãn để train
 Y_train_fake=[];
 Y_test_fake=[];
 for i in range(0,len(Y_daisy_train)):
@@ -78,7 +78,7 @@ X35_test=np.concatenate((X_rose_test,X_tulip_test), axis=0)
 X45_train=np.concatenate((X_sunflower_train,X_tulip_train), axis=0)
 X45_test=np.concatenate((X_sunflower_test,X_tulip_test), axis=0)
 
-
+#Train các model phân loại đôi 1
 w12,b12=TM.trainingSVM(X12_train,Y_train_fake,0.1)
 w13,b13=TM.trainingSVM(X13_train,Y_train_fake,0.1)
 w14,b14=TM.trainingSVM(X14_train,Y_train_fake,0.1)
@@ -90,6 +90,8 @@ w34,b34=TM.trainingSVM(X34_train,Y_train_fake,0.1)
 w35,b35=TM.trainingSVM(X35_train,Y_train_fake,0.1)
 w45,b45=TM.trainingSVM(X45_train,Y_train_fake,0.1)
 
+
+#đánh giá các model phân loại đôi 1
 print(PM.Evaluate(w12,b12,X12_test,Y_test_fake));
 print(PM.Evaluate(w13,b13,X13_test,Y_test_fake));
 print(PM.Evaluate(w14,b14,X14_test,Y_test_fake));
@@ -101,7 +103,7 @@ print(PM.Evaluate(w34,b34,X34_test,Y_test_fake));
 print(PM.Evaluate(w35,b35,X35_test,Y_test_fake));
 print(PM.Evaluate(w45,b45,X45_test,Y_test_fake));
 
-
+#Lưu các model vào ma trận
 rows = 6
 cols = 6
 w = []
@@ -139,6 +141,7 @@ b[3][4]=b34
 b[3][5]=b35
 b[4][5]=b45
 
+#Đánh giá mô hình
 print(PM.EvaluateOneForOne(w,b,X_Test,Y_Test))
 
 
