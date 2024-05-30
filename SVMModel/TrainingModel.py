@@ -58,27 +58,37 @@ def callModel():
     return w,b
                  
 def trainingSVM(XX,YY,mC):
+    # chuyển các list về ma trận numpy để tính
     N=len(XX)
     X=np.array(XX)
     X=X.T
     Y=np.array(YY)
     Y=Y.T
+
+    #Tính hệ số V của biến bậc 2
     V=X*Y
     K=matrix(V.T.dot(V))
+
+    #Tính hệ số p của biến bậc 1
     p=matrix(-np.ones((N,1)))
+
+    #Tính các ma trận ràng buộc
     G=matrix(np.vstack((-np.eye(N),np.eye(N))))
     h=matrix(np.vstack((np.zeros(((N,1))),mC*np.ones((N,1)))))
     A=matrix(Y.reshape((-1,N)),tc='d')
     b=matrix(np.zeros((1,1)))
+
+    #gọi hàm tính tối ưu với các hàm số
     solvers.options['show_progress']=False
     sol=solvers.qp(K,p,G,h,A,b)
-    l=np.array(sol['x'])
 
+    #Tính lamda
+    l=np.array(sol['x'])
+    #check điều kiện để 0<lamda<mC
     S=np.where(l>1e-5)[0]
     S2=np.where(l<0.999*mC)
-
+    #tính w và b theo biểu thức KKT
     M=[val for val in S  if np.any(val == S2)]
-
     VS=V[:,S]
     XT=X
     print(XT.shape)
