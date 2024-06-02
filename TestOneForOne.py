@@ -92,16 +92,16 @@ w45,b45=TM.trainingSVM(X45_train,Y_train_fake,10)
 
 
 #đánh giá các model phân loại đôi 1
-print(PM.Evaluate(w12,b12,X12_test,Y_test_fake));
-print(PM.Evaluate(w13,b13,X13_test,Y_test_fake));
-print(PM.Evaluate(w14,b14,X14_test,Y_test_fake));
-print(PM.Evaluate(w15,b15,X15_test,Y_test_fake));
-print(PM.Evaluate(w23,b23,X23_test,Y_test_fake));
-print(PM.Evaluate(w24,b24,X24_test,Y_test_fake));
-print(PM.Evaluate(w25,b25,X25_test,Y_test_fake));
-print(PM.Evaluate(w34,b34,X34_test,Y_test_fake));
-print(PM.Evaluate(w35,b35,X35_test,Y_test_fake));
-print(PM.Evaluate(w45,b45,X45_test,Y_test_fake));
+print("Accuracy daisy vs dandelion:",PM.Evaluate(w12,b12,X12_test,Y_test_fake));
+print("Accuracy daisy vs rose:",PM.Evaluate(w13,b13,X13_test,Y_test_fake));
+print("Accuracy daisy vs sunflower:",PM.Evaluate(w14,b14,X14_test,Y_test_fake));
+print("Accuracy daisy vs tulip:",PM.Evaluate(w15,b15,X15_test,Y_test_fake));
+print("Accuracy dandelion vs rose:",PM.Evaluate(w23,b23,X23_test,Y_test_fake));
+print("Accuracy dandelion vs sunflower:",PM.Evaluate(w24,b24,X24_test,Y_test_fake));
+print("Accuracy dandelion vs tulip:",PM.Evaluate(w25,b25,X25_test,Y_test_fake));
+print("Accuracy rose vs sunflower:",PM.Evaluate(w34,b34,X34_test,Y_test_fake));
+print("Accuracy rose vs tulip:",PM.Evaluate(w35,b35,X35_test,Y_test_fake));
+print("Accuracy sunflower vs tulip:",PM.Evaluate(w45,b45,X45_test,Y_test_fake));
 
 #Lưu các model vào ma trận
 rows = 6
@@ -142,7 +142,7 @@ b[3][5]=b35
 b[4][5]=b45
 
 #Đánh giá mô hình
-print(PM.EvaluateOneForOne(w,b,X_Test,Y_Test))
+print("Accuracy OFO:",PM.EvaluateOneForOne(w,b,X_Test,Y_Test))
 
 
 

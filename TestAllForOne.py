@@ -82,16 +82,16 @@ b=[b1,b2,b3,b4,b5]
 
 #đánh giấ tất cả  w,b dựa trên tập test
 #train model tìm w1,b1 để phân loại hoa hồng hay không
-print(PM.Evaluate(w1,b1,X_daisy_test,Y_daisy_test))
-print(PM.Evaluate(w2,b2,X_dandelion_test,Y_dandelion_test))
-print(PM.Evaluate(w3,b3,X_rose_test,Y_rose_test))
-print(PM.Evaluate(w4,b4,X_sunflower_test,Y_sunflower_test))
-print(PM.Evaluate(w5,b5,X_tulip_test,Y_tulip_test))
+print("Accuracy daisy:",PM.Evaluate(w1,b1,X_daisy_test,Y_daisy_test))
+print("Accuracy dandelion:",PM.Evaluate(w2,b2,X_dandelion_test,Y_dandelion_test))
+print("Accuracy rose:",PM.Evaluate(w3,b3,X_rose_test,Y_rose_test))
+print("Accuracy sunflower:",PM.Evaluate(w4,b4,X_sunflower_test,Y_sunflower_test))
+print("Accuracy tulip:",PM.Evaluate(w5,b5,X_tulip_test,Y_tulip_test))
 
 
 
 #đánh giá phân loại 5 hoa
-print(PM.EvaluateAllForOne(w,b,X_Test_All,Y_Test_All))
+print("Accuracy AFO:",PM.EvaluateAllForOne(w,b,X_Test_All,Y_Test_All))
 
 
 
