@@ -10,11 +10,11 @@ folder_sunflower_path=r"Data/sunflower"
 folder_tulip_path=r"Data/tulip"
 
 #Tạo dataset 5 loại hoa
-X_daisy,Y_daisy=DP.proData(folder_daisy_path,1,100)
-X_rose,Y_rose=DP.proData(folder_rose_path,3,100)
-X_dandelion,Y_dandelion=DP.proData(folder_dandelion_path,2,100)
-X_sunflower,Y_sunflower=DP.proData(folder_sunflower_path,4,100)
-X_tulip,Y_tulip=DP.proData(folder_tulip_path,5,100)
+X_daisy,Y_daisy=DP.proData(folder_daisy_path,1,500)
+X_rose,Y_rose=DP.proData(folder_rose_path,3,500)
+X_dandelion,Y_dandelion=DP.proData(folder_dandelion_path,2,500)
+X_sunflower,Y_sunflower=DP.proData(folder_sunflower_path,4,500)
+X_tulip,Y_tulip=DP.proData(folder_tulip_path,5,500)
 
 
 #chia tập train-test theo tỉ lệ 3-7
@@ -79,16 +79,16 @@ X45_train=np.concatenate((X_sunflower_train,X_tulip_train), axis=0)
 X45_test=np.concatenate((X_sunflower_test,X_tulip_test), axis=0)
 
 #Train các model phân loại đôi 1
-w12,b12=TM.trainingSVM(X12_train,Y_train_fake,0.1)
-w13,b13=TM.trainingSVM(X13_train,Y_train_fake,0.1)
-w14,b14=TM.trainingSVM(X14_train,Y_train_fake,0.1)
-w15,b15=TM.trainingSVM(X15_train,Y_train_fake,0.1)
-w23,b23=TM.trainingSVM(X23_train,Y_train_fake,0.1)
-w24,b24=TM.trainingSVM(X24_train,Y_train_fake,0.1)
-w25,b25=TM.trainingSVM(X25_train,Y_train_fake,0.1)
-w34,b34=TM.trainingSVM(X34_train,Y_train_fake,0.1)
-w35,b35=TM.trainingSVM(X35_train,Y_train_fake,0.1)
-w45,b45=TM.trainingSVM(X45_train,Y_train_fake,0.1)
+w12,b12=TM.trainingSVM(X12_train,Y_train_fake,10)
+w13,b13=TM.trainingSVM(X13_train,Y_train_fake,10)
+w14,b14=TM.trainingSVM(X14_train,Y_train_fake,10)
+w15,b15=TM.trainingSVM(X15_train,Y_train_fake,10)
+w23,b23=TM.trainingSVM(X23_train,Y_train_fake,10)
+w24,b24=TM.trainingSVM(X24_train,Y_train_fake,20)
+w25,b25=TM.trainingSVM(X25_train,Y_train_fake,10)
+w34,b34=TM.trainingSVM(X34_train,Y_train_fake,10)
+w35,b35=TM.trainingSVM(X35_train,Y_train_fake,10)
+w45,b45=TM.trainingSVM(X45_train,Y_train_fake,10)
 
 
 #đánh giá các model phân loại đôi 1

@@ -29,7 +29,7 @@ def devideData(path,amount,label):
         if(path==flower_path):
             X1,Y1=DP.proData(path,1,amount)
         else:
-            X,Y=DP.proData(flower_path,-1,amount/2)
+            X,Y=DP.proData(flower_path,-1,amount)
             X2=X2+X
             Y2=Y2+Y
     X1_train,Y1_train,X1_test,Y1_test=TM.devideData(X1,Y1,0.3)
@@ -48,29 +48,29 @@ def devideData(path,amount,label):
 
 
 #Tạo các tập train và test với từng loại hoa
-X_daisy_train,Y_daisy_train,X_daisy_test,Y_daisy_test=devideData(folder_daisy_path,100,1)
-X_dandelion_train,Y_dandelion_train,X_dandelion_test,Y_dandelion_test=devideData(folder_dandelion_path,100,2)
-X_rose_train,Y_rose_train,X_rose_test,Y_rose_test=devideData(folder_rose_path,100,3)
-X_sunflower_train,Y_sunflower_train,X_sunflower_test,Y_sunflower_test=devideData(folder_sunflower_path,100,4)
-X_tulip_train,Y_tulip_train,X_tulip_test,Y_tulip_test=devideData(folder_tulip_path,100,5)
+X_daisy_train,Y_daisy_train,X_daisy_test,Y_daisy_test=devideData(folder_daisy_path,500,1)
+X_dandelion_train,Y_dandelion_train,X_dandelion_test,Y_dandelion_test=devideData(folder_dandelion_path,500,2)
+X_rose_train,Y_rose_train,X_rose_test,Y_rose_test=devideData(folder_rose_path,500,3)
+X_sunflower_train,Y_sunflower_train,X_sunflower_test,Y_sunflower_test=devideData(folder_sunflower_path,500,4)
+X_tulip_train,Y_tulip_train,X_tulip_test,Y_tulip_test=devideData(folder_tulip_path,500,5)
 
 
 
 
 #train model tìm w1,b1 để phân loại hoa daisy hay không
-w1,b1=TM.trainingSVM(X_daisy_train,Y_daisy_train,0.1)
+w1,b1=TM.trainingSVM(X_daisy_train,Y_daisy_train,10)
 
 #train model tìm w2,b2 để phân loại hoa dandelion hay không
-w2,b2=TM.trainingSVM(X_dandelion_train,Y_dandelion_train,0.1)
+w2,b2=TM.trainingSVM(X_dandelion_train,Y_dandelion_train,10)
 
 #train model tìm w3,b3 để phân loại hoa hồng hay không
-w3,b3=TM.trainingSVM(X_rose_train,Y_rose_train,0.1)
+w3,b3=TM.trainingSVM(X_rose_train,Y_rose_train,10)
 
 #train model tìm w4,b4 để phân loại hoa hướng dương hay không
-w4,b4=TM.trainingSVM(X_sunflower_train,Y_sunflower_train,0.1)
+w4,b4=TM.trainingSVM(X_sunflower_train,Y_sunflower_train,10)
 
 #train model tìm w5,b5 để phân loại hoa tulip hay không
-w5,b5=TM.trainingSVM(X_tulip_train,Y_tulip_train,0.1)
+w5,b5=TM.trainingSVM(X_tulip_train,Y_tulip_train,10)
 
 
 

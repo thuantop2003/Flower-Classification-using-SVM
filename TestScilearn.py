@@ -32,7 +32,7 @@ X_Train=X_daisy_train+X_dandelion_train+X_rose_train+X_sunflower_train+X_tulip_t
 Y_Train=Y_daisy_train+Y_dandelion_train+Y_rose_train+Y_sunflower_train+Y_tulip_train
 
 #gọi model trong SVC
-model=SVC(kernel='linear',C=0.1)
+model=SVC(kernel='linear',C=10)
 
     #train model
 model.fit(X_Train,Y_Train)
